@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 export default function Home() {
   const [cars, setCars] = useState([]);
   useEffect(() => {
-    fetch(`/api/getAllCars`, {
+    fetch(`/api/cars/getCars`, {
       method: "GET",
     })
       .then((response) => response.json())
