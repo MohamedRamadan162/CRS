@@ -8,28 +8,28 @@ function Card(props) {
                     <img src="images/car_6.jpg" alt="Image" className="img-fluid" />
                 </div>
                 <div className="listing-contents h-100">
-                    <h3>Mitsubishi Pajero</h3>
+                    <h3>{props.carModel}</h3>
                     <div className="rent-price">
-                        <strong>$389.00</strong>
+                        <strong>{props.carPrice}$</strong>
                         <span className="mx-1">/</span>day
                     </div>
                     <div className="d-block d-md-flex mb-3 border-bottom pb-3">
                         <div className="listing-feature pr-4">
                             <span className="caption">Year:</span>
-                            <span className="number">2010</span>
+                            <span className="number">{props.carYear}</span>
                         </div>
                         <div className="listing-feature pr-4">
                             <span className="caption">Office:</span>
-                            <span className="number">Cairo</span>
+                            <span className="number">{props.officeName}</span>
                         </div>
                         <div className="listing-feature pr-4">
                             <span className="caption">Plate:</span>
-                            <span className="number">Z345Y3</span>
+                            <span className="number">{props.plateId}</span>
                         </div>
                     </div>
                     <div>
                         <p>
-                            Status: <span className='status'>Active</span>
+                            Status: <span className='status'>{props.carStatus}</span>
                         </p>
                         <p>
                             <a href="#" className="btn btn-primary btn-sm">
