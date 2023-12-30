@@ -33,7 +33,7 @@ CREATE TABLE `cars` (
   `car_pic` varchar(255) NOT NULL,
   `car_year` varchar(255) NOT NULL,
   `car_status` enum('active','out of service','rented') NOT NULL,
-  `office_id` int(11) NOT NULL
+  `office_id` int(11) NOT NULL,
   `price` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -119,12 +119,12 @@ ALTER TABLE `users`
 -- Constraints for table `cars`
 --
 ALTER TABLE `cars`
-  ADD CONSTRAINT `cars_ibfk_1` FOREIGN KEY (`office_id`) REFERENCES `office` (`office_id`);
+  ADD CONSTRAINT `cars_ibfk_1` FOREIGN KEY (`office_id`) REFERENCES `offices` (`office_id`);
 
 --
 -- Constraints for table `reservation`
 --
-ALTER TABLE `reservation`
+ALTER TABLE `reservations`
   ADD CONSTRAINT `reservation_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`),
   ADD CONSTRAINT `reservation_ibfk_2` FOREIGN KEY (`plate_id`) REFERENCES `cars` (`plate_id`);
 COMMIT;
