@@ -34,7 +34,7 @@ CREATE TABLE `cars` (
   `car_year` varchar(255) NOT NULL,
   `car_status` enum('active','out of service','rented') NOT NULL,
   `office_id` int(11) NOT NULL,
-  `price` int(11) NOT NULL
+  `car_price` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -45,7 +45,7 @@ CREATE TABLE `cars` (
 
 CREATE TABLE `offices` (
   `office_id` int(11) NOT NULL,
-  `location` varchar(255) NOT NULL,
+  `office_location` varchar(255) NOT NULL,
   `office_phone` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
