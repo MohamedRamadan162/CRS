@@ -24,7 +24,7 @@ function Card(props) {
                         </div>
                         <div className="listing-feature pr-4">
                             <span className="caption">Plate:</span>
-                            <span className="number">{props.key}</span>
+                            <span className="number">{props.plateID}</span>
                         </div>
                     </div>
                     <div>
