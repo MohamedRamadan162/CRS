@@ -23,10 +23,12 @@ export default async function handler(req, res) {
     let parameters = [];
 
     if (plateID) {
+      console.log('in plate',2);
       conditions.push("plate_id = ?");
       parameters.push(plateID);
     }
     if (carModel) {
+      console.log('in model',3);
       conditions.push("car_model = ?");
       parameters.push(carModel);
     }
