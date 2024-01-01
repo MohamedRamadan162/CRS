@@ -14,8 +14,8 @@ export default async function handler(req, res) {
 
     try {
         const body = req.body;
-        await db.promise().execute('INSERT INTO cars (plate_id, car_model, car_pic, car_year, car_status, office_id) VALUES (?, ?, ?, ?, ?, ?);', [body.plateID, body.carModel, body.carPic, body.carYear, body.carStatus, body.officeID]);
-
+        console.log(req.body);
+        await db.promise().execute('INSERT INTO cars (plate_id, car_model, car_pic, car_year, car_status, office_id, car_price) VALUES (?, ?, ?, ?, ?, ?, ?);', [body.plateID, body.carModel, body.carPic, body.carYear, body.carStatus, body.officeID, body.carPrice]);
         return res.status(200).json({ message: 'Car added successfully.' });
 
     } catch (error) {

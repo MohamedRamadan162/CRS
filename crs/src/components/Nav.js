@@ -38,8 +38,8 @@ function Nav(props) {
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="/" className="nav-link">
-                                            Cars
+                                        <a href="/add_car" className="nav-link">
+                                            Add cars
                                         </a>
                                     </li>
                                     <li>
