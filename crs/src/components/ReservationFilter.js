@@ -17,7 +17,6 @@ function ReservationFilter(props) {
             .then((response) => response.json())
             .then((data) => {
                 props.setResults(data)
-                console.log('date:', data);
             }).catch((error) => console.error("Error listing cars:", error));
     }
     const handleUserChange = (e) => {

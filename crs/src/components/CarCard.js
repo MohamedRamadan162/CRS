@@ -4,8 +4,8 @@ function CarCard(props) {
     return (
         <div className="col-md-6 col-lg-4 mb-4">
             <div className="listing d-block  align-items-stretch">
-                <div className="listing-img h-100 mr-4">
-                    <img src="images/car_6.jpg" alt="Image" className="img-fluid" />
+                <div className="listing-img mr-4">
+                    <img src={props.carPic} alt="Image" className="" />
                 </div>
                 <div className="listing-contents h-100">
                     <h3>{props.carModel}</h3>
