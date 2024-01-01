@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import {useUser} from '@clerk/nextjs'
 import { Inter } from 'next/font/google'
 import Nav from '@/components/Nav'
 import Hero from '@/components/Hero'

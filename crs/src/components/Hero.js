@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from "react";
+import {useUser} from '@clerk/nextjs'
 
 function Hero({ setResults }) {
     const [plate, setPlate] = useState("");
@@ -66,7 +67,7 @@ function Hero({ setResults }) {
                                         <option value="Kia">Kia</option>
                                         <option value="Toyota">Toyota</option>
                                         <option value="Honda">Honda</option>
-                                        <option value="">Lamborghini</option>
+                                        <option value="Lamborghini">Lamborghini</option>
                                     </select>
                                 </div>
                                 <div className="mb-3 mb-md-0 col-md-3">

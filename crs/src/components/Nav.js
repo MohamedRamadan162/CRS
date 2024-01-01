@@ -1,6 +1,8 @@
 import React from 'react'
+import {useUser, UserButton} from '@clerk/nextjs'
 
 function Nav() {
+    const user = useUser();
     return (
         <>
             <div className="site-mobile-menu site-navbar-target">
@@ -58,9 +60,17 @@ function Nav() {
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="contact.html" className="nav-link">
-                                            Logout
-                                        </a>
+                                        {user && (
+                                            <>
+                                            <a href="contact.html" className="nav-link">
+                                                Logout
+                                            </a>
+                                            <UserButton afterSignOutUrl = '/'/>
+                                            </>
+                                        )}
+                                           
+                                        
+                                        
                                     </li>
                                 </ul>
                             </nav>
