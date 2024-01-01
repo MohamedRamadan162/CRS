@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Nav() {
+function Nav(props) {
     return (
         <>
             <div className="site-mobile-menu site-navbar-target">
@@ -16,7 +16,7 @@ function Nav() {
                     <div className="row align-items-center position-relative">
                         <div className="col-3">
                             <div className="site-logo">
-                                <a href="index.html">
+                                <a href="/">
                                     <strong>CarRental</strong>
                                 </a>
                             </div>
@@ -32,28 +32,28 @@ function Nav() {
                                 role="navigation"
                             >
                                 <ul className="site-menu main-menu js-clone-nav ml-auto ">
-                                    <li className="active">
-                                        <a href="index.html" className="nav-link">
+                                    <li className={props.active}>
+                                        <a href="/" className="nav-link">
                                             Home
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="listing.html" className="nav-link">
+                                        <a href="/" className="nav-link">
                                             Cars
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="testimonials.html" className="nav-link">
+                                        <a href="/reservation" className="nav-link">
                                             Reservations
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="blog.html" className="nav-link">
+                                        <a href="/customer" className="nav-link">
                                             Customers
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="about.html" className="nav-link">
+                                        <a href="/office" className="nav-link">
                                             Offices
                                         </a>
                                     </li>

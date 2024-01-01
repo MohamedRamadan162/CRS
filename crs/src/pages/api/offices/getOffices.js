@@ -15,7 +15,7 @@ export default async function handler(req, res) {
 
   try {
     // Extracting query parameters
-    const {officeID, officeLocation, officePhone} = req.body;
+    const {officeID, officeLocation, officePhone} = req.query;
 
     // Constructing the SQL query
     let query = "SELECT * FROM offices";

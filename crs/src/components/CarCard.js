@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Card(props) {
+function CarCard(props) {
     return (
         <div className="col-md-6 col-lg-4 mb-4">
             <div className="listing d-block  align-items-stretch">
@@ -44,4 +44,4 @@ function Card(props) {
     )
 }
 
-export default Card
+export default CarCard

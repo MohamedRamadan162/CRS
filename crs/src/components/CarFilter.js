@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from "react";
 
-function Hero({ setResults }) {
+function CarFilter(props) {
     const [plate, setPlate] = useState("");
     const [model, setModel] = useState("");
     const [year, setYear] = useState("");
@@ -15,7 +15,7 @@ function Hero({ setResults }) {
         })
             .then((response) => response.json())
             .then((data) => {
-                setResults(data)
+                props.setResults(data)
                 console.log('cars-hero:', data)
             }).catch((error) => console.error("Error listing cars:", error));
     }
@@ -49,7 +49,7 @@ function Hero({ setResults }) {
                         <div className="row mb-5">
                             <div className="col-lg-7 intro">
                                 <h1>
-                                    <strong>Rent a car</strong> is within your finger tips.
+                                    <strong>{props.emphasis}</strong> {props.h1}
                                 </h1>
                             </div>
                         </div>
@@ -93,13 +93,17 @@ function Hero({ setResults }) {
                                 </div>
                                 <div className="mb-3 mb-md-0 col-md-3">
                                     <div className="form-control-wrap">
-                                        <input
-                                            name='carStatus'
-                                            onChange={handleStatusChange}
-                                            type="text"
-                                            placeholder='Car Status'
-                                            className="form-control px-3"
-                                        />
+                                    <select
+                                        name="carStatus"
+                                        id=""
+                                        onChange={handleStatusChange}
+                                        className="custom-select form-control"
+                                    >
+                                        <option value="">Select Status</option>
+                                        <option value="active">active</option>
+                                        <option value="rented">rented</option>
+                                        <option value="out of service">out of service</option>
+                                    </select>
                                     </div>
                                 </div>
                             </div>
@@ -147,4 +151,4 @@ function Hero({ setResults }) {
     )
 }
 
-export default Hero
+export default CarFilter

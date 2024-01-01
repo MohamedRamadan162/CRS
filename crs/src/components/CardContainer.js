@@ -7,7 +7,7 @@ function CardContainer(props) {
                 <div className="row mp-5">
                     <div className="col-lg-7">
                         <h2 className="section-heading mb-5">
-                            <strong>Car Listings</strong>
+                            <strong>{props.h2}</strong>
                         </h2>
                         {/* <p className="">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p> */}
                     </div>
