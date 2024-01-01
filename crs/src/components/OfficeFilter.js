@@ -13,7 +13,6 @@ function OfficeFilter(props) {
             .then((response) => response.json())
             .then((data) => {
                 props.setResults(data)
-                console.log('cars-hero:', data)
             }).catch((error) => console.error("Error listing cars:", error));
     }
     const handleOfficeChange = (e) => {
@@ -43,13 +42,15 @@ function OfficeFilter(props) {
                         <form className="trip-form" method='get'>
                             <div className="row align-items-center mb-2">
                                 <div className="mb-3 mb-md-0 col-md-3">
-                                    <input
-                                        name='officeID'
-                                        onChange={handleOfficeChange}
-                                        type="text"
-                                        placeholder='Office ID'
-                                        className="form-control px-3"
-                                    />
+                                    <div className="form-control-wrap">
+                                        <input
+                                            name='officeID'
+                                            onChange={handleOfficeChange}
+                                            type="text"
+                                            placeholder='Office ID'
+                                            className="form-control px-3"
+                                        />
+                                    </div>
                                 </div>
                                 <div className="mb-3 mb-md-0 col-md-3">
                                     <div className="form-control-wrap">
@@ -75,13 +76,13 @@ function OfficeFilter(props) {
                                 </div>
                                 <div className="mb-3 mb-md-0 col-md-3">
                                     <div className="form-control-wrap">
-                                    <input
-                                        type="button"
-                                        id='search-btn'
-                                        value="Search Now"
-                                        onClick={search}
-                                        className="btn btn-primary btn-block py-3"
-                                    />
+                                        <input
+                                            type="button"
+                                            id='search-btn'
+                                            value="Search Now"
+                                            onClick={search}
+                                            className="btn btn-primary btn-block py-3"
+                                        />
                                     </div>
                                 </div>
                             </div>

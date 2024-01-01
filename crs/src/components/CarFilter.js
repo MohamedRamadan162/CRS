@@ -16,7 +16,6 @@ function CarFilter(props) {
             .then((response) => response.json())
             .then((data) => {
                 props.setResults(data)
-                console.log('cars-hero:', data)
             }).catch((error) => console.error("Error listing cars:", error));
     }
     const handlePlateChange = (e) => {

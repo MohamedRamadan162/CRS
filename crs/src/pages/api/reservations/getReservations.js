@@ -15,7 +15,7 @@ export default async function handler(req, res) {
 
   try {
     // Extracting query parameters
-    const {rsrvID, userID, plateID, reserveTime, pickupTime, returnTime } = req.body;
+    const {rsrvID, userID, plateID, reserveTime, pickupTime, returnTime } = req.query;
 
     // Constructing the SQL query
     let query = "SELECT * FROM reservations";

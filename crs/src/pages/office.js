@@ -25,7 +25,7 @@ export default function office() {
         {
           // results && 
           results.map(office => (
-            <OfficeCard OfficeID={office.office_id} OfficeLocation={office.office_location} OfficePhone={office.office_phone} />
+            <OfficeCard officeID={office.office_id} officeLocation={office.office_location} officePhone={office.office_phone} />
           ))
         }
       </CardContainer>
