@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google'
 import Navc from '@/components/Navc'
 import ReservationFilterc from '@/components/ReservationFilterc'
 import CardContainer from '@/components/CardContainer'
-import ReservationCard from '@/components/ReservationCard'
+import ReservationCardc from '@/components/ReservationCardc'
 import { useState, useEffect } from "react";
 import { withSession } from '../lib/session'
 
@@ -27,7 +27,7 @@ export default function customer_reservation({user}) {
         {
           // results && 
           results.map(res => (
-            <ReservationCard rsrvID={res.rsrv_id} userID={res.user_id} plateID={res.plate_id} reserveTime={res.reserve_time} pickupTime={res.pickup_time} returnTime={res.return_time} />
+            <ReservationCardc rsrvID={res.rsrv_id} userID={res.user_id} plateID={res.plate_id} reserveTime={res.reserve_time} pickupTime={res.pickup_time} returnTime={res.return_time} />
           ))
         }
       </CardContainer>

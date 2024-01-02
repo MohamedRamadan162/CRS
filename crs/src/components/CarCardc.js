@@ -90,18 +90,18 @@ function CarCardc(props) {
                         <p>
                             Status: <span className='status'>{props.carStatus}</span>
                         </p>
-                        <p className='d-flex justify-content-around'>
+                        <p className='d-flex'>
                             <button onClick={handleRentClick} className='btn btn-primary btn-sm'>
                                 Rent Now
                             </button>
-                            <div className='d-flex flex-column'>
+                            {/* <div className='d-flex flex-column'>
                                 <button onClick={handleDeactiveClick} className='btn btn-danger btn-sm'>
                                     Deactivate
                                 </button>
                                 <button onClick={handleActiveClick} className='btn btn-success btn-sm'>
                                     Activate
                                 </button>
-                            </div>
+                            </div> */}
                         </p>
                     </div>
                 </div>

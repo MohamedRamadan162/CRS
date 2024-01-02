@@ -5,6 +5,7 @@ import ReservationFilter from '@/components/ReservationFilter'
 import CardContainer from '@/components/CardContainer'
 import ReservationCard from '@/components/ReservationCard'
 import { useState, useEffect } from "react";
+import { withSession } from '../lib/session'
 
 
 
@@ -32,3 +33,18 @@ export default function reservation() {
     </div>
   )
 }
+export const getServerSideProps = withSession(async function ({ req }) {
+  const user = req.session.get('user');
+  const admin = req.session.get('admin');
+  if (!admin) {
+    return {
+      redirect: {
+        destination: '/customers',
+        permanent: false,
+      },
+    };
+  }
+  return {
+    props: { admin },
+  };
+});

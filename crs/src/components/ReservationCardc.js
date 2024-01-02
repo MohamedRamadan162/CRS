@@ -1,6 +1,6 @@
 import React from 'react'
 
-function ReservationCard(props) {
+function ReservationCardc(props) {
     const formatDateString = (originalDateString) => {
         const originalDate = new Date(originalDateString);
         const formattedDate = `${originalDate.getFullYear()}-${(originalDate.getMonth() + 1).toString().padStart(2, '0')}-${originalDate.getDate().toString().padStart(2, '0')}`;
@@ -24,7 +24,7 @@ function ReservationCard(props) {
             const data = await result.json();
             console.log(data, 1); // Log data for debugging
             if (data) {
-                window.location.href = "/reservation";
+                window.location.href = "/customer_reservation";
             }
         } catch (error) {
             alert("Error");
@@ -82,4 +82,4 @@ function ReservationCard(props) {
     )
 }
 
-export default ReservationCard
+export default ReservationCardc

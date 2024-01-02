@@ -16,11 +16,11 @@ export default function customers() {
   const [results, setResults] = useState([])
   return (
     <div className="site-wrap" id="home-section">
-      <Navc  />
+      <Navc />
       <CarFilter
         setResults={setResults}
-        emphasis = {emphasis}
-        h1 = {h1}
+        emphasis={emphasis}
+        h1={h1}
       />
       <CardContainer h2={h2}>
         {
@@ -34,18 +34,18 @@ export default function customers() {
   )
 }
 
-  export const getServerSideProps = withSession(async function ({ req }) {
-    const user = req.session.get('user');
-    if (!user) {
-      return {
-        redirect: {
-          destination: '/',
-          permanent: false,
-        },
-      };
-    }
-  
+export const getServerSideProps = withSession(async function ({ req }) {
+  const user = req.session.get('user');
+  if (!user) {
     return {
-      props: { user },
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
     };
-  });
+  }
+
+  return {
+    props: { user },
+  };
+});
