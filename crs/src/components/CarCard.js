@@ -1,6 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 function CarCard(props) {
+    // var color
+    // if (props.carStatus == 'active') {
+    //     color = '#65a30d;'
+    // }
+    // else if (props.carStatus == 'rented') {
+    //     color = '#0284c7;'
+    // }
+    // else {
+    //     color = '#dc2626'
+    // }
     return (
         <div className="col-md-6 col-lg-4 mb-4">
             <div className="listing d-block  align-items-stretch">
@@ -29,7 +39,9 @@ function CarCard(props) {
                     </div>
                     <div>
                         <p>
-                            Status: <span className='status'>{props.carStatus}</span>
+                            Status: <span className='status'
+                                // style={{ color: color }}
+                            >{props.carStatus}</span>
                         </p>
                         <p>
                             <a href="#" className="btn btn-primary btn-sm">

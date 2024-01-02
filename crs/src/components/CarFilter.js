@@ -10,12 +10,13 @@ function CarFilter(props) {
     const [price, setPrice] = useState("");
     const search = () => {
         // e.preventDefault();  // Prevent the default form submission behavior
-        fetch(`/api/cars/getCars?carModel=${model}&plateID=${plate}&carYear=${year}&carStatus=${status}&carOffice=${office}&carPrice=${price}`, {
+        fetch(`/api/cars/getCars?carModel=${model}&plateID=${plate}&carYear=${year}&carStatus=${status}&officeID=${office}&carPrice=${price}`, {
             method: "GET",
         })
             .then((response) => response.json())
             .then((data) => {
                 props.setResults(data)
+                console.log(data);
             }).catch((error) => console.error("Error listing cars:", error));
     }
     const handlePlateChange = (e) => {
