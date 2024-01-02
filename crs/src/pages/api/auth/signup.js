@@ -26,7 +26,8 @@ export default withSession(async (req, res) => {
       },
     });
     if (result.ok) {
-        const user = {userEmail, userName, userPhone, userHashedPassword, isAdmin};
+        const user = await result.json();
+        console.log(user);
         req.session.set("user", { user:user });
         await req.session.save();
         return res.status(200).json(user);

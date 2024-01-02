@@ -34,12 +34,19 @@ export default function Home({ admin }) {
     </div>
   )
 }
-var flag1 = 0;
-var flag2 = 0
+
 export const getServerSideProps = withSession(async function ({ req }) {
   const user = req.session.get('user');
   const admin = req.session.get('admin');
-  if (!admin) {
+  if (!admin && !user) {
+    return {
+      redirect: {
+        destination: '/login',
+        permanent: false,
+      },
+    };
+  }
+  if(!admin){
     return {
       redirect: {
         destination: '/customers',
@@ -47,6 +54,7 @@ export const getServerSideProps = withSession(async function ({ req }) {
       },
     };
   }
+    
   return {
     props: { admin },
   };

@@ -5,6 +5,10 @@ function CarCard(props) {
 
     const router = useRouter();
     const handleRentClick = () => {
+        if(props.carStatus !== 'active'){
+            alert('Car is not available for rent')
+            return;
+        }
         router.push({
             pathname: '/add_reservation', // Path to the destination page
             query: { plateID: props.plateID }, // Passing data as a query parameter
