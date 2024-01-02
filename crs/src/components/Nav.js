@@ -1,6 +1,15 @@
 import React from 'react'
 
-function Nav(props) {
+function Nav() {
+    const logout = async () => {
+        await fetch('/api/auth/logout', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        })
+        window.location.href = '/login'
+    }
     return (
         <>
             <div className="site-mobile-menu site-navbar-target">
@@ -58,9 +67,9 @@ function Nav(props) {
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="contact.html" className="nav-link">
-                                            Logout
-                                        </a>
+                                        <input type = "button" value = "logout" onClick={logout} className="nav-link"/>
+                                            
+
                                     </li>
                                 </ul>
                             </nav>

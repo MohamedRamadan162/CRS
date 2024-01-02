@@ -1,9 +1,10 @@
 import Image from 'next/image'
+import {useUser} from '@clerk/nextjs'
 import { Inter } from 'next/font/google'
 import Nav from '@/components/Nav'
 import CarFilter from '@/components/CarFilter'
 import CardContainer from '@/components/CardContainer'
-import CarCard from '@/components/CarCard'
+import Card from '@/components/Card'
 import { useState, useEffect } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -32,3 +33,20 @@ export default function Home() {
     </div>
   )
 }
+
+  export const getServerSideProps = withSession(async function ({ req }) {
+    const user = req.session.get('user');
+    // console.log('user:', user);
+    if (!user) {
+      return {
+        redirect: {
+          destination: '/login',
+          permanent: false,
+        },
+      };
+    }
+  
+    return {
+      props: { user },
+    };
+  });
