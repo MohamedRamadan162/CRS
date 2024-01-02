@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import { useState } from "react";
 import bcrypt from "bcryptjs";
+import Swal from 'sweetalert2';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -9,15 +10,20 @@ export default function Login() {
   const [password, setPassword] = useState("");
 
   const login = async () => {
-    if (
-          email === "" ||
-        password === ""
-      ) {
-        alert("Please fill in all fields");
+    if (email === "" || password === "") {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Please fill in all fields',
+        });
         return;
       }
       if (!email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
-        alert("Please enter a valid email address");
+        Swal.fire({
+          icon: 'error',
+          title: 'Invalid Email',
+          text: 'Please enter a valid email address',
+        });
         return;
       }
     try {
@@ -40,7 +46,11 @@ export default function Login() {
         window.location.href = "/";
       }
     } catch (error) {
-        alert("Username or password is incorrect");
+        Swal.fire({
+            icon: 'error',
+            title: 'Invalid email or password',
+            
+          });
       console.error("Username or password is incorrect", error);
     }
   };

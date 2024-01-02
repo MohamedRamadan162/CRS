@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import { useState } from "react";
 import bcrypt from "bcryptjs";
+import Swal from "sweetalert2";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,31 +21,50 @@ export default function signUp() {
         password === "" ||
         confirmPassword === ""
       ) {
-        alert("Please fill in all fields");
+        Swal.fire("Oops...", "Please fill in all fields", "error");
         return;
       }
       if (!email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
-        alert("Please enter a valid email address");
+        Swal.fire(
+          "Invalid Email",
+          "Please enter a valid email address",
+          "error"
+        );
         return;
       }
       if (!phone.match(/^\d+$/)) {
-        alert("Phone number must contain only digits");
+        Swal.fire(
+          "Invalid Phone",
+          "Phone number must contain only digits",
+          "error"
+        );
         return;
       }
       if (phone.length < 10) {
-        alert("Phone number must be at least 10 digits long");
+        Swal.fire(
+          "Invalid Phone",
+          "Phone number must be at least 10 digits long",
+          "error"
+        );
         return;
       }
 
     //   if (password.length < 8) {
-    //     alert("Password must be at least 8 characters long");
+    //     Swal.fire(
+    //       "Weak Password",
+    //       "Password must be at least 8 characters long",
+    //       "error"
+    //     );
     //     return;
     //   }
       if (password !== confirmPassword) {
-        alert("Password and confirm password do not match");
+        Swal.fire(
+          "Password Mismatch",
+          "Password and confirm password do not match",
+          "error"
+        );
         return;
       }
-
       const result = await fetch(`/api/auth/signup`, {
         method: "POST",
         headers: {
@@ -60,13 +80,22 @@ export default function signUp() {
         }),
       });
 
-      console.log(result, 1); // Log data for debugging
-      if (result.ok) {
+
+      if(!result.ok){
+        throw new Error('Response not OK');
+      }
+      const data = await result.json();
+      if (data) {
         window.location.href = "/";
       }
+      
+    
     } catch (error) {
-      alert("Error creating an account");
-      console.error("Error creating an account", error);
+        Swal.fire(
+            "Error creating account",
+            "error"
+          );
+      console.error("Error creating account", error);
     }
   };
 

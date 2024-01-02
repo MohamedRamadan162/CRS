@@ -29,13 +29,13 @@ export default withSession(async (req, res) => {
         const user = {userEmail, userName, userPhone, userHashedPassword, isAdmin};
         req.session.set("user", { user });
         await req.session.save();
-        console.log(user, 1);
         return res.status(200).json(user);
     }
-    const response = await result.json();
-    console.log(response, 1);
+    const response = await result();
+    
   } catch (error) {
     console.error("Error logging in:", error);
+    
     return res.status(500).json({ message: "Internal server Error" });
   }
 });

@@ -32,7 +32,7 @@ export default function Home() {
 
   export const getServerSideProps = withSession(async function ({ req }) {
     const user = req.session.get('user');
-  
+    // console.log('user:', user);
     if (!user) {
       return {
         redirect: {
