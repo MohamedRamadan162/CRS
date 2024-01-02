@@ -74,13 +74,6 @@ function CarAdder(props) {
             <div className="container">
                 <div className="row align-items-center justify-content-center">
                     <div className="col-lg-10">
-                        {/* <div className="row mb-5">
-                            <div className="col-lg-7 intro">
-                                <h1>
-                                    <strong>{props.emphasis}</strong> {props.h1}
-                                </h1>
-                            </div>
-                        </div> */}
                         <form className="trip-form" method='post' style={{marginTop:'100px'}}>
                             <div className="form-control-wrap mb-3">
                                 <input

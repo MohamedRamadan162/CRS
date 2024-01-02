@@ -86,7 +86,7 @@ export default function signUp() {
       }
       const data = await result.json();
       if (data) {
-        window.location.href = "/";
+        window.location.href = "/customers";
       }
       
     

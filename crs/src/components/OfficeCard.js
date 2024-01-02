@@ -17,21 +17,14 @@ function OfficeCard(props) {
                         </div>
                     </div>
                     <div>
-                        <div className='d-flex justify-content-around'>
-                            <input
-                                type="button"
-                                id='search-btn'
-                                value="Add"
-                                // onClick={search}
-                                className="btn btn-primary"
-                            />
-                            <input
+                        <div className='d-flex'>
+                            {/* <input
                                 type="button"
                                 id='search-btn'
                                 value="Remove"
                                 // onClick={search}
-                                className="btn btn-danger"
-                            />
+                                className="btn btn-danger btn-block"
+                            /> */}
                         </div>
                     </div>
                 </div>

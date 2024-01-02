@@ -5,7 +5,32 @@ function CustomerCard(props) {
         const originalDate = new Date(originalDateString);
         const formattedDate = `${originalDate.getFullYear()}-${(originalDate.getMonth() + 1).toString().padStart(2, '0')}-${originalDate.getDate().toString().padStart(2, '0')}`;
         return formattedDate;
-      };
+    };
+    const remove = async () => {
+        try {
+            const result = await fetch(`/api/reservations/removeReservation`, {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    rsrvID: props.rsrvID,
+                    plateID: props.plateID
+                }),
+            });
+            if (!result.ok) {
+                throw new Error("Response not OK");
+            }
+            const data = await result.json();
+            console.log(data, 1); // Log data for debugging
+            if (data) {
+                window.location.href = "/reservation";
+            }
+        } catch (error) {
+            alert("Error");
+            console.error("Error creating an account", error);
+        }
+    }
     return (
         <div className="col-md-6 col-lg-4 mb-4">
             <div className="listing d-block  align-items-stretch">
@@ -40,20 +65,13 @@ function CustomerCard(props) {
                         </div>
                     </div>
                     <div>
-                        <div className='d-flex justify-content-around'>
-                            <input
-                                type="button"
-                                id='search-btn'
-                                value="Add"
-                                // onClick={search}
-                                className="btn btn-primary"
-                            />
+                        <div className='d-flex'>
                             <input
                                 type="button"
                                 id='search-btn'
                                 value="Remove"
-                                // onClick={search}
-                                className="btn btn-danger"
+                                onClick={remove}
+                                className="btn btn-danger btn-block"
                             />
                         </div>
                     </div>

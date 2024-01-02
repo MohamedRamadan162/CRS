@@ -1,6 +1,5 @@
 import React from 'react'
 import { useState, useEffect } from "react";
-import {useUser} from '@clerk/nextjs'
 
 function CarFilter(props) {
     const [plate, setPlate] = useState("");
@@ -56,18 +55,13 @@ function CarFilter(props) {
                         <form className="trip-form" method='get'>
                             <div className="row align-items-center mb-2">
                                 <div className="mb-3 mb-md-0 col-md-3">
-                                    <select
-                                        name="carModel"
-                                        id=""
+                                    <input
+                                        name='carModel'
                                         onChange={handleModelChange}
-                                        className="custom-select form-control"
-                                    >
-                                        <option value="">Select Model</option>
-                                        <option value="Kia">Kia</option>
-                                        <option value="Toyota">Toyota</option>
-                                        <option value="Honda">Honda</option>
-                                        <option value="Lamborghini">Lamborghini</option>
-                                    </select>
+                                        type="text"
+                                        placeholder='Car model'
+                                        className="form-control px-3"
+                                    />
                                 </div>
                                 <div className="mb-3 mb-md-0 col-md-3">
                                     <div className="form-control-wrap">
@@ -93,34 +87,29 @@ function CarFilter(props) {
                                 </div>
                                 <div className="mb-3 mb-md-0 col-md-3">
                                     <div className="form-control-wrap">
-                                    <select
-                                        name="carStatus"
-                                        id=""
-                                        onChange={handleStatusChange}
-                                        className="custom-select form-control"
-                                    >
-                                        <option value="">Select Status</option>
-                                        <option value="active">active</option>
-                                        <option value="rented">rented</option>
-                                        <option value="out of service">out of service</option>
-                                    </select>
+                                        <select
+                                            name="carStatus"
+                                            id=""
+                                            onChange={handleStatusChange}
+                                            className="custom-select form-control"
+                                        >
+                                            <option value="">Select Status</option>
+                                            <option value="active">active</option>
+                                            <option value="rented">rented</option>
+                                            <option value="out of service">out of service</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
                             <div className="row align-items-center">
                                 <div className="mb-3 mb-md-0 col-md-3">
-                                    <select
-                                        name="officeID"
+                                    <input
+                                        name='officeID'
                                         onChange={handleOfficeChange}
-                                        id=""
-                                        className="custom-select form-control"
-                                    >
-                                        <option value="">Select Office</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                    </select>
+                                        type="text"
+                                        placeholder='Office ID'
+                                        className="form-control px-3"
+                                    />
                                 </div>
                                 <div className="mb-3 mb-md-0 col-md-3">
                                     <div className="form-control-wrap">

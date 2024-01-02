@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import { useRouter } from 'next/router';
 
-function CarCard(props) {
+function CarCardc(props) {
 
     const router = useRouter();
     const handleRentClick = () => {
         router.push({
-            pathname: '/add_reservation', // Path to the destination page
+            pathname: '/customer_rent', // Path to the destination page
             query: { plateID: props.plateID }, // Passing data as a query parameter
         });
     };
@@ -111,4 +111,4 @@ function CarCard(props) {
     )
 }
 
-export default CarCard
+export default CarCardc

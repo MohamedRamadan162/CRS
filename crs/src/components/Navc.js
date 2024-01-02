@@ -25,7 +25,7 @@ function Nav() {
                     <div className="row align-items-center position-relative">
                         <div className="col-3">
                             <div className="site-logo">
-                                <a href="/">
+                                <a href="/customers">
                                     <strong>CarRental</strong>
                                 </a>
                             </div>
@@ -42,28 +42,13 @@ function Nav() {
                             >
                                 <ul className="site-menu main-menu js-clone-nav ml-auto ">
                                     <li>
-                                        <a href="/" className="nav-link">
+                                        <a href="/customers" className="nav-link">
                                             Home
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="/add_car" className="nav-link">
-                                            Add cars
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/reservation" className="nav-link">
+                                        <a href="/customer_reservation" className="nav-link">
                                             Reservations
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/customer" className="nav-link">
-                                            Customers
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/office" className="nav-link">
-                                            Offices
                                         </a>
                                     </li>
                                     <li>

@@ -24,7 +24,12 @@ export default withSession(async (req, res) => {
         console.log("wrong password");
         return res.status(401).json("wrong password");
       } else {
-        req.session.set("user", { user: users[0] });
+        if (users[0].is_admin == 1) {
+          req.session.set("admin", { admin: users[0] });
+        }
+        else {
+          req.session.set("user", { user: users[0] });
+        }
         await req.session.save();
         return res.status(200).json(users);
       }

@@ -14,7 +14,7 @@ export default async function handler(req, res) {
 
     try {
         const body = req.body;
-        await db.promise().execute('INSERT INTO reservations (user_id, plate_id, reserve_time, pickup_time, return_time, payment) VALUES (?, ?, ?, ?, ?, ?);', [body.userId, body.plateId, body.reserveTime, body.pickupTime, body.returnTime, body.payment]);
+        await db.promise().execute('INSERT INTO reservations (user_id, plate_id, reserve_time, pickup_time, return_time, payment) VALUES (?, ?, ?, ?, ?, ?);', [body.userID, body.plateID, body.reserveTime, body.pickupTime, body.returnTime, body.payment]);
         await db.promise().execute(`UPDATE cars SET car_status = 'rented' WHERE plate_id = ?;`, [body.plateID]);
 
         return res.status(200).json({ message: 'reservation made successfully.' });
