@@ -1,8 +1,15 @@
 import React from 'react'
-import {useUser, UserButton} from '@clerk/nextjs'
 
 function Nav() {
-    const user = useUser();
+    const logout = async () => {
+        await fetch('/api/auth/logout', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        })
+        window.location.href = '/login'
+    }
     return (
         <>
             <div className="site-mobile-menu site-navbar-target">
@@ -60,17 +67,9 @@ function Nav() {
                                         </a>
                                     </li>
                                     <li>
-                                        {user && (
-                                            <>
-                                            <a href="contact.html" className="nav-link">
-                                                Logout
-                                            </a>
-                                            <UserButton afterSignOutUrl = '/'/>
-                                            </>
-                                        )}
-                                           
-                                        
-                                        
+                                        <input type = "button" value = "logout" onClick={logout} className="nav-link"/>
+                                            
+
                                     </li>
                                 </ul>
                             </nav>

@@ -1,35 +1,46 @@
 import { Inter } from "next/font/google";
 import { useState } from "react";
-import bcrypt from 'bcryptjs';
+import bcrypt from "bcryptjs";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Login() {
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const login = async () => {
+    if (
+          email === "" ||
+        password === ""
+      ) {
+        alert("Please fill in all fields");
+        return;
+      }
+      if (!email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+        alert("Please enter a valid email address");
+        return;
+      }
     try {
       const result = await fetch(`/api/auth/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ userEmail: email, userPassword: "123" }),
+        body: JSON.stringify({ userEmail: email, userPassword: password }),
       });
-  
+
       if (!result.ok) {
         throw new Error('Response not OK');
       }
-  
+
       const data = await result.json();
       console.log(data, 1); // Log data for debugging
-  
+
       if (data) {
         window.location.href = "/";
       }
     } catch (error) {
+        alert("Username or password is incorrect");
       console.error("Username or password is incorrect", error);
     }
   };
@@ -39,9 +50,8 @@ export default function Login() {
   };
 
   const handlePasswordChange = async (e) => {
-    const salt = await bcrypt.genSalt(10); // You can increase the salt rounds for more security
-    const hashedPassword = await bcrypt.hash(e.target.value, salt);
-    setPassword(hashedPassword);
+    
+    setPassword(e.target.value);
   };
 
   return (
@@ -60,12 +70,11 @@ export default function Login() {
         rel="stylesheet"
         href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
       />
-      <link rel="stylesheet" href="le.css" />
       <section className="ftco-section">
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-md-6 text-center mb-5">
-              <h2 className="heading-section">Rent a car</h2>
+              <h2 className="heading-section">Welcome</h2>
             </div>
           </div>
           <div className="row justify-content-center">
@@ -97,13 +106,15 @@ export default function Login() {
                     />
                   </div>
                   <div className="form-group">
-                    <button
+                    <input
+                      type="button"
+                      value="Login"
                       onClick={login}
-                      type="submit"
-                      className="form-control btn btn-primary rounded submit px-3"
-                    >
-                      Login
-                    </button>
+                      className="btn btn-primary btn-block py-3"
+                    />
+                  </div>
+                  <div className="form-group text-center">
+                    <a href="/signup" className="signup-link">Don't have an account?</a>
                   </div>
                 </form>
               </div>

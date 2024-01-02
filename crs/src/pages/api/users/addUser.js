@@ -13,8 +13,8 @@ export default async function handler(req, res) {
     }
 
     try {
-        const body = req.body;
-        await db.promise().execute('INSERT INTO users (user_name, user_email, user_password, user_phone, is_admin)VALUES (?, ?, ?, ?, ?);', [body.userName, body.userEmail, body.userPassword, body.userPhone, body.isAdmin]);
+        const {userName, userEmail, userPhone, userHashedPassword, isAdmin} = req.body;
+        await db.promise().execute('INSERT INTO users (user_name, user_email, user_password, user_phone, is_admin)VALUES (?, ?, ?, ?, ?);', [userName, userEmail, userHashedPassword, userPhone, isAdmin]);
 
         return res.status(200).json({ message: 'User added successfully.' });
 

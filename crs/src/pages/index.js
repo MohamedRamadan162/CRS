@@ -5,6 +5,7 @@ import Nav from '@/components/Nav'
 import Hero from '@/components/Hero'
 import CardContainer from '@/components/CardContainer'
 import Card from '@/components/Card'
+import { withSession } from '../lib/session'
 import { useState, useEffect } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -28,3 +29,20 @@ export default function Home() {
       </div>
     )
   }
+
+  export const getServerSideProps = withSession(async function ({ req }) {
+    const user = req.session.get('user');
+  
+    if (!user) {
+      return {
+        redirect: {
+          destination: '/login',
+          permanent: false,
+        },
+      };
+    }
+  
+    return {
+      props: { user },
+    };
+  });
